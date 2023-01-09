@@ -42,18 +42,18 @@ function App() {
     icon: tomate,
   }]
 
-  // const getMonthName = (monthNumber) => {
-  //   console.log(monthNumber)
-  //   return months[monthNumber]
-  // }
-  // const getShowedMonths = () => {
-  //   return months.slice(currentMonthNumber - 1, (currentMonthNumber + 2))
-  // }
+  useEffect(() => {
+    if (currentMonthNumber === 0) {
+      const lastMonth = months.pop()
+      setShowedMonths([lastMonth, ...months])
+    }
+  }, [])
 
   useEffect(() => {
     const daysInMonth = getDays(new Date().getFullYear(), currentMonthNumber + 1)
     setDays(daysInMonth);
   }, [currentMonthNumber]);
+
 
   const changeMonth = (month) => {
     setCurrentMonthNumber(months.findIndex(each => each === month))
