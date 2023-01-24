@@ -1,15 +1,10 @@
 @import './core/reset.scss';
 @import './core/variables.scss';
 @import './layout/Header.scss';
+@import './layout/Calendar.scss';
 
 .app {
     height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-}
-
-
-
-.calendar__title {
-    color: var(--blue-color);
 }
