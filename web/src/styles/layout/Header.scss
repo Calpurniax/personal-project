@@ -1,0 +1,10 @@
+.title {
+    color: $orange-color;
+    background-color: $lightgreen-color;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border-bottom: solid 3px $brown-color; //podria meter un poco de alfa?
+}
