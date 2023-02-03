@@ -13,12 +13,13 @@
         border: solid 1px;
         height: 40vh;
         width: 100%;
-        background-color: aqua;
+
     }
 
     &__options {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
         gap: 5rem;
 
@@ -28,4 +29,74 @@
             border: 1px solid $green-color;
         }
     }
+
+    &__legend {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+        grid-template-rows: 3;
+
+
+        &__title {
+            font-size: 2rem;
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+
+        &__color {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+}
+
+.color1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color: $blue-color;
+}
+
+.color2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 3;
+    background-color: $orange-color;
+}
+
+.color3 {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 2;
+    background-color: $green-color;
+}
+
+.color4 {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 3;
+    background-color: $brown-color;
+
+}
+
+.text1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 2;
+}
+
+.text2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 3;
+}
+
+.text3 {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 2;
+}
+
+.text4 {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 3;
 }

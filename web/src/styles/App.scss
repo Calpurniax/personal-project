@@ -1,10 +1,17 @@
 @import './core/reset.scss';
 @import './core/variables.scss';
+@import './components/List.scss';
 @import './layout/Header.scss';
+@import './layout/Footer.scss';
 @import './layout/Calendar.scss';
 
+
 .app {
-    height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
+}
+
+.main {
+    padding-bottom: 12vh;
+
 }

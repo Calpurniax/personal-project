@@ -1,0 +1,16 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $orange-color;
+    display: flex;
+    flex-direction: column;
+    color: $brown-color;
+    height: 12vh;
+    padding: 1.7%;
+
+    &__link {
+        text-decoration: none;
+        color: $brown-color;
+    }
+}

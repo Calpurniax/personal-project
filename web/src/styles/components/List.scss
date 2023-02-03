@@ -1,0 +1,27 @@
+.aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    &__title {
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    &__ul {
+        display: flex;
+        flex-direction: row;
+
+        &__component {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__img {
+                width: 25%;
+            }
+        }
+    }
+}
