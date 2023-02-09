@@ -7,7 +7,7 @@ const CalendarMobile = ({ months }) => {
             daysToRender.push(i)
         }
         return daysToRender.map((each, index) => {
-            return <li key={index} className='calendar__day'>{each}</li>
+            return <li key={index} className='calendar__body__day'>{each}</li>
         })
     }
     return (
@@ -15,7 +15,7 @@ const CalendarMobile = ({ months }) => {
             <h2 className='calendar__title'>{actualMonth.name}</h2>
             <div className='calendar__body'>
                 <ul className='calendar__body__ul'>{renderDays()}</ul>
-                <div>
+                <div className='calendar__body__task'>
                     <section className='calendar__body__task--soil'> Berejenas</section>
                     <section className='calendar__body__task--harvest'> Guisantes</section>
                 </div>

@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // position: relative;
 
     &__title {
         font-size: 2rem;
@@ -10,23 +11,30 @@
 
     &__body {
         border: 1px solid $brown-color;
+        width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-content: space-around;
-        gap: 40%;
-        padding: 0 30% 0 30%;
 
-        &__task--soil {
-            background-color: $orange-color;
-            height: 5%;
-            padding: 5%
+        &__day {
+            font-size: 0.5rem;
         }
 
-        &__task--harvest {
-            background-color: $green-color;
-            height: 5%;
-            padding: 5%
+        &__task {
+            width: 70%;
+
+            &--soil {
+                background-color: $orange-color;
+                padding: 5%;
+                margin: 5%;
+            }
+
+            &--harvest {
+                background-color: $green-color;
+                padding: 5%;
+                margin: 5%;
+            }
         }
     }
 
