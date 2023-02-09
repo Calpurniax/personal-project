@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import Header from './Header';
-import Calendar from './Calendar';
+import CalendarMobile from './CalendarMobile';
+import CalendarLegend from './CalendarLegend';
 import List from './List';
 import Footer from './Footer';
 import onion from '../images/onion.png';
@@ -25,11 +26,33 @@ function App() {
     name: 'calabaza',
     icon: tomate,
   }]
+  const months = [{
+    id: 1,
+    name: 'Enero',
+    days: 31
+  },
+  {
+    id: 2,
+    name: 'Febrero',
+    days: 28
+
+  },
+  {
+    id: 3,
+    name: 'Marzo',
+    days: 31,
+  },
+  {
+    id: 4,
+    name: 'Abril',
+    days: 30,
+  }]
   return (
     <div className='app'>
       <Header />
       <main className='main'>
-        <Calendar />
+        <CalendarMobile months={months} />
+        <CalendarLegend />
         <List vegetables={vegetables} />
       </main>
       <Footer />
