@@ -15,7 +15,10 @@ const CalendarMobile = ({ months }) => {
             <h2 className='calendar__title'>{actualMonth.name}</h2>
             <div className='calendar__body'>
                 <ul className='calendar__body__ul'>{renderDays()}</ul>
-                <section className='calendar__body__task'> lo que habría que plantar</section>
+                <div>
+                    <section className='calendar__body__task--soil'> Berejenas</section>
+                    <section className='calendar__body__task--harvest'> Guisantes</section>
+                </div>
             </div>
 
         </section>

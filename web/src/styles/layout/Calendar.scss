@@ -8,11 +8,26 @@
         font-size: 2rem;
     }
 
-    &__div {
-        border: solid 1px;
-        height: 40vh;
-        width: 100%;
+    &__body {
+        border: 1px solid $brown-color;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: space-around;
+        gap: 40%;
+        padding: 0 30% 0 30%;
 
+        &__task--soil {
+            background-color: $orange-color;
+            height: 5%;
+            padding: 5%
+        }
+
+        &__task--harvest {
+            background-color: $green-color;
+            height: 5%;
+            padding: 5%
+        }
     }
 
     &__options {
