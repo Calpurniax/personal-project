@@ -1,9 +1,9 @@
-const CalendarMobile = ({ months }) => {
-    const actualMonth = months.find(each => each.name === 'Abril')
+const CalendarMobile = ({ month }) => {
+
     const daysToRender = []
     const renderDays = () => {
 
-        for (let i = 1; i <= actualMonth.days; i++) {
+        for (let i = 1; i <= month.days; i++) {
             daysToRender.push(i)
         }
         return daysToRender.map((each, index) => {
@@ -12,7 +12,7 @@ const CalendarMobile = ({ months }) => {
     }
     return (
         <section className='calendar'>
-            <h2 className='calendar__title'>{actualMonth.name}</h2>
+            <h2 className='calendar__title'>{month.name}</h2>
             <div className='calendar__body'>
                 <ul className='calendar__body__ul'>{renderDays()}</ul>
                 <div className='calendar__body__task'>

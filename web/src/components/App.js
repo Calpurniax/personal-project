@@ -1,4 +1,5 @@
 import '../styles/App.scss';
+import { useEffect, useState } from 'react';
 import Header from './Header';
 import CalendarMobile from './CalendarMobile';
 import CalendarLegend from './CalendarLegend';
@@ -10,6 +11,7 @@ import tomate from '../images/tomate.png';
 import carrot from '../images/carrot.png'
 
 function App() {
+  const [month, setMonth] = useState(0)
   const vegetables = [{
     name: 'apio',
     icon: carrot,
@@ -27,31 +29,40 @@ function App() {
     icon: tomate,
   }]
   const months = [{
-    id: 1,
+    id: 0,
     name: 'Enero',
     days: 31
   },
   {
-    id: 2,
+    id: 1,
     name: 'Febrero',
     days: 28
 
   },
   {
-    id: 3,
+    id: 2,
     name: 'Marzo',
     days: 31,
   },
   {
-    id: 4,
+    id: 3,
     name: 'Abril',
     days: 30,
   }]
+
+  useEffect(() => {
+    const date = new Date()
+    const dateMonth = (date.getMonth())
+    setMonth(months.find(each => each.id === dateMonth))
+  }, []);
+
+
+
   return (
     <div className='app'>
       <Header />
       <main className='main'>
-        <CalendarMobile months={months} />
+        <CalendarMobile month={month} />
         <CalendarLegend />
         <List vegetables={vegetables} />
       </main>
