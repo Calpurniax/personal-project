@@ -5,9 +5,10 @@
     background-color: $orange-color;
     display: flex;
     flex-direction: column;
+    font-size: small;
     color: $brown-color;
-    height: 12vh;
-    padding: 1.7%;
+    min-height: 12vh;
+    padding-left: 1.7%;
 
     &__link {
         text-decoration: none;

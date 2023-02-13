@@ -12,6 +12,7 @@ import carrot from '../images/carrot.png'
 
 function App() {
   const [month, setMonth] = useState(0)
+  const [days, setDays] = useState(30);
   const vegetables = [{
     name: 'apio',
     icon: carrot,
@@ -28,32 +29,14 @@ function App() {
     name: 'calabaza',
     icon: tomate,
   }]
-  const months = [{
-    id: 0,
-    name: 'Enero',
-    days: 31
-  },
-  {
-    id: 1,
-    name: 'Febrero',
-    days: 28
 
-  },
-  {
-    id: 2,
-    name: 'Marzo',
-    days: 31,
-  },
-  {
-    id: 3,
-    name: 'Abril',
-    days: 30,
-  }]
-
+  const getDays = (year, month) => {
+    return new Date(year, month, 0).getDate();
+  }
   useEffect(() => {
-    const date = new Date()
-    const dateMonth = (date.getMonth())
-    setMonth(months.find(each => each.id === dateMonth))
+    setMonth(new Date().toLocaleString('default', { month: 'long' }))
+    const daysInMonth = getDays(new Date().getFullYear(), new Date().getMonth() + 1)
+    setDays(daysInMonth);
   }, []);
 
 
@@ -62,7 +45,7 @@ function App() {
     <div className='app'>
       <Header />
       <main className='main'>
-        <CalendarMobile month={month} />
+        <CalendarMobile month={month} days={days} />
         <CalendarLegend />
         <List vegetables={vegetables} />
       </main>
