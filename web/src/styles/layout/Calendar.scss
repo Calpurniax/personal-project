@@ -3,12 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 5%;
 
 
     &__title {
         text-transform: capitalize;
         font-size: 2rem;
         color: $orange-color;
+        padding-bottom: 3%;
     }
 
     &__body {
