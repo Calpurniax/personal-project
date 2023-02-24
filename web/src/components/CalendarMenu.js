@@ -1,6 +1,6 @@
-const CalendarMenu = ({ postMonth, preMonth }) => {
+const CalendarMenu = ({ postMonth, preMonth, changeToPrevMonth }) => {
     const beforeClick = () => {
-        console.log('antes')
+        changeToPrevMonth()
     }
     return (
         <section className="month__menu">

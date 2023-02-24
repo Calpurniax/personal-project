@@ -46,13 +46,17 @@ function App() {
     current.setMonth(current.getMonth() + 2)
     setPostMonth(current.toLocaleString('default', { month: 'long' }))
   }, []);
+  const changeToPrevMonth = () => {
+    setMonth(preMonth)
+    setDays(getDays(new Date().getFullYear(), new Date().getMonth() - 1))
 
+  }
   return (
     <div className='app'>
       <Header />
       <main className='main'>
         <CalendarMobile month={month} days={days} />
-        <CalendarMenu preMonth={preMonth} postMonth={postMonth} />
+        <CalendarMenu preMonth={preMonth} postMonth={postMonth} changeToPrevMonth={changeToPrevMonth} />
         <CalendarLegend />
         <List vegetables={vegetables} />
 
