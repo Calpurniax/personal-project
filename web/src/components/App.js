@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Header from './Header';
 import CalendarMobile from './CalendarMobile';
 import CalendarLegend from './CalendarLegend';
+import CalendarMenu from './CalendarMenu';
 import List from './List';
 import Footer from './Footer';
 import onion from '../images/onion.png';
@@ -11,7 +12,9 @@ import tomate from '../images/tomate.png';
 import carrot from '../images/carrot.png'
 
 function App() {
-  const [month, setMonth] = useState(0)
+  const [month, setMonth] = useState('Enero');
+  const [preMonth, setPreMonth] = useState('Diciembre');
+  const [postMonth, setPostMonth] = useState('Febrero');
   const [days, setDays] = useState(30);
   const vegetables = [{
     name: 'apio',
@@ -34,20 +37,25 @@ function App() {
     return new Date(year, month, 0).getDate();
   }
   useEffect(() => {
-    setMonth(new Date().toLocaleString('default', { month: 'long' }))
-    const daysInMonth = getDays(new Date().getFullYear(), new Date().getMonth() + 1)
+    const current = new Date()
+    setMonth(current.toLocaleString('default', { month: 'long' }))
+    const daysInMonth = getDays(current.getFullYear(), current.getMonth() + 1)
     setDays(daysInMonth);
+    current.setMonth(current.getMonth() - 1)
+    setPreMonth(current.toLocaleString('default', { month: 'long' }))
+    current.setMonth(current.getMonth() + 2)
+    setPostMonth(current.toLocaleString('default', { month: 'long' }))
   }, []);
-
-
 
   return (
     <div className='app'>
       <Header />
       <main className='main'>
         <CalendarMobile month={month} days={days} />
+        <CalendarMenu preMonth={preMonth} postMonth={postMonth} />
         <CalendarLegend />
         <List vegetables={vegetables} />
+
       </main>
       <Footer />
     </div>

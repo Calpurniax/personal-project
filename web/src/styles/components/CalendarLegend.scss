@@ -8,9 +8,10 @@
     &__title {
         grid-area: 1/1/span 1/span 5;
         text-align: center;
-        padding: 2% 0 5% 0;
+        padding: 3% 0 6% 0;
         color: $brown-color;
         font-size: 2rem;
+        font-family: $font-title;
     }
 
     &__color {

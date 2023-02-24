@@ -2,6 +2,7 @@
 @import './core/variables.scss';
 @import './components/List.scss';
 @import'./components/CalendarLegend.scss';
+@import './components/CalendarMenu.scss';
 @import './layout/Header.scss';
 @import './layout/Footer.scss';
 @import './layout/Calendar.scss';
@@ -14,6 +15,6 @@
 
 .main {
     padding-bottom: 12vh;
-    background-color: #DCEAB240;
-
+    background-color: #DCEAB260;
+    font-family: $font-text;
 }
