@@ -1,19 +1,33 @@
-.month__menu {
+.monthMenu {
     text-align: center;
     margin: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-bottom: 0.5px solid #46122060;
     width: 95%;
     padding: 1% 0 1% 0;
+    gap: 4%;
 
     &__change {
         margin: 2%;
-        text-transform: capitalize;
         color: $brown-color;
 
         &:hover {
             cursor: pointer;
+        }
+
+        &__list {
+            text-transform: capitalize;
+            display: flex;
+            flex-direction: row;
+            gap: 8%;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }

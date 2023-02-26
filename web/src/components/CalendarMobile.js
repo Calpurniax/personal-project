@@ -1,4 +1,4 @@
-const CalendarMobile = ({ month, days }) => {
+const CalendarMobile = ({ currentMonthName, days }) => {
 
     const daysToRender = []
     const renderDays = () => {
@@ -12,7 +12,7 @@ const CalendarMobile = ({ month, days }) => {
     }
     return (
         <section className='calendar'>
-            <h2 className='calendar__title'>{month}</h2>
+            <h2 className='calendar__title'>{currentMonthName}</h2>
             <div className='calendar__body'>
                 <ul className='calendar__body__ul'>{renderDays()}</ul>
                 <div className='calendar__body__task'>

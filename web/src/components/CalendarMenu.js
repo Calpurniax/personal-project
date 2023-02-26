@@ -1,15 +1,15 @@
-const CalendarMenu = ({ postMonth, preMonth, changeToPrevMonth }) => {
-    const beforeClick = () => {
-        changeToPrevMonth()
+const CalendarMenu = ({ showedMonths, changeMonth }) => {
+    const monthClick = (event) => {
+        changeMonth(event.target.id)
+    }
+    const renderMonths = () => {
+        return showedMonths.map((each, index) => <li key={index} id={each} onClick={monthClick} className="monthMenu__change__list__element">{each}</li>)
     }
     return (
-        <section className="month__menu">
-            <span className="month__menu__change threeBefore"><i className="fa-solid fa-angle-left"></i></span>
-            <p className="month__menu__change before" onClick={beforeClick}> {preMonth}</p>
-            <p className="month__menu__change after">{postMonth}</p>
-            <span className="month__menu__change threeAfter"><i className="fa-solid fa-chevron-right"></i>
-
-            </span>
-        </section>
+        <section className="monthMenu">
+            <span className="monthMenu__change before" > <i className="fa-solid fa-angle-left"></i></span>
+            <ul className="monthMenu__change__list">{renderMonths()}</ul>
+            <span className="monthMenu__change after"><i className="fa-solid fa-chevron-right"></i></span>
+        </section >
     )
 }; export default CalendarMenu
