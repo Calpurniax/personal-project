@@ -1,5 +1,5 @@
 import '../styles/App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './Header';
 import CalendarMobile from './CalendarMobile';
 import CalendarLegend from './CalendarLegend';
@@ -49,18 +49,15 @@ function App() {
     return months.slice(currentMonthNumber - 1, (currentMonthNumber + 2))
   }
 
-  // useEffect(() => {
-  //   const current = new Date()
-  //   const daysInMonth = getDays(current.getFullYear(), current.getMonth())
-  //   setDays(daysInMonth);
-  // }, []);
+  useEffect(() => {
+    const daysInMonth = getDays(new Date().getFullYear(), currentMonthNumber + 1)
+    setDays(daysInMonth);
+  }, [currentMonthNumber]);
 
   const changeMonth = (month) => {
-    //debugger;
     console.log(month)
     setCurrentMonthNumber(months.findIndex(each => each === month))
     setCurrentMonthName(month)
-    setDays(getDays(new Date().getFullYear(), currentMonthNumber + 1))
   }
 
   return (
