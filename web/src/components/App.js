@@ -1,5 +1,5 @@
 import '../styles/App.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from './Header';
 import CalendarMobile from './CalendarMobile';
 import CalendarLegend from './CalendarLegend';
@@ -12,14 +12,14 @@ import tomate from '../images/tomate.png';
 import carrot from '../images/carrot.png'
 
 function App() {
-  const [currentMonthNumber, setCurrentMonthNumber] = useState(0)
+  const [currentMonthNumber, setCurrentMonthNumber] = useState(new Date().getMonth())
   const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
-  //const [month, setMonth] = useState('Enero');
-  //const [preMonth, setPreMonth] = useState('Diciembre');
-  //const [postMonth, setPostMonth] = useState('Febrero');
-  const [days, setDays] = useState(31);
-  const [currentMonthName, setCurrentMonthName] = useState('enero')
-  const [showedMonths, setShowedMonths] = useState(['diciembre', 'enero', 'febrero'])
+  const getDays = (year, month) => {
+    return new Date(year, month, 0).getDate();
+  }
+  const [days, setDays] = useState(getDays(new Date().getFullYear(), (new Date().getMonth() + 1)));
+  const [currentMonthName, setCurrentMonthName] = useState(months[new Date().getMonth()])
+  const [showedMonths, setShowedMonths] = useState(months.slice((new Date().getMonth() - 1), (new Date().getMonth() + 2)))
   const vegetables = [{
     name: 'apio',
     icon: carrot,
@@ -37,32 +37,30 @@ function App() {
     icon: tomate,
   }]
 
-  const getDays = (year, month) => {
-    return new Date(year, month, 0).getDate();
-  }
+
 
   const getMonthName = (monthNumber) => {
-    return months.slice(monthNumber, (monthNumber + 1))
+    console.log(monthNumber)
+    return months[monthNumber]
+
 
   }
   const getShowedMonths = () => {
     return months.slice(currentMonthNumber - 1, (currentMonthNumber + 2))
   }
 
-  useEffect(() => {
-    const current = new Date()
-    const daysInMonth = getDays(current.getFullYear(), current.getMonth() + 1)
-    setDays(daysInMonth);
-    setCurrentMonthNumber(current.getMonth())
-    setCurrentMonthName(getMonthName(currentMonthNumber))
-    setShowedMonths(getShowedMonths(currentMonthNumber))
-  }, []);
+  // useEffect(() => {
+  //   const current = new Date()
+  //   const daysInMonth = getDays(current.getFullYear(), current.getMonth())
+  //   setDays(daysInMonth);
+  // }, []);
 
   const changeMonth = (month) => {
+    //debugger;
     console.log(month)
     setCurrentMonthNumber(months.findIndex(each => each === month))
     setCurrentMonthName(month)
-    setDays(getDays(new Date().getFullYear(), currentMonthNumber))
+    setDays(getDays(new Date().getFullYear(), currentMonthNumber + 1))
   }
 
   return (
