@@ -37,13 +37,9 @@ function App() {
     icon: tomate,
   }]
 
-
-
   const getMonthName = (monthNumber) => {
     console.log(monthNumber)
     return months[monthNumber]
-
-
   }
   const getShowedMonths = () => {
     return months.slice(currentMonthNumber - 1, (currentMonthNumber + 2))
@@ -55,9 +51,14 @@ function App() {
   }, [currentMonthNumber]);
 
   const changeMonth = (month) => {
-    console.log(month)
     setCurrentMonthNumber(months.findIndex(each => each === month))
     setCurrentMonthName(month)
+  }
+  const moveMonthLeft = () => {
+    console.log('izquierda')
+  }
+  const moveMonthRight = () => {
+    console.log('derecha')
   }
 
   return (
@@ -65,7 +66,7 @@ function App() {
       <Header />
       <main className='main'>
         <CalendarMobile days={days} currentMonthName={currentMonthName} />
-        <CalendarMenu showedMonths={showedMonths} changeMonth={changeMonth} />
+        <CalendarMenu showedMonths={showedMonths} changeMonth={changeMonth} moveMonthLeft={moveMonthLeft} moveMonthRight={moveMonthRight} />
         <CalendarLegend />
         <List vegetables={vegetables} />
 
