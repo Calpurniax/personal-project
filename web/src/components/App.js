@@ -57,18 +57,27 @@ function App() {
     setCurrentMonthName(month)
   }
 
+  function monthZero(refMonth) {
+    const firstMonths = months.slice(refMonth, refMonth + 2)
+    const lastMonth = Array.of(months[11])
+    const concatMonths = lastMonth.concat(firstMonths)
+    return concatMonths
+  }
+  function monthEleven(refMonth) {
+    const firstMonths = months.slice(refMonth - 1, refMonth + 1)
+    const lastMonth = Array.of(months[0])
+    const concatMonths = firstMonths.concat(lastMonth)
+    return concatMonths
+  }
+
   const moveMonthLeft = () => {
     const initialMonth = months.findIndex(each => each === showedMonths[0])
     if (initialMonth === 0) {
-      const firstMonths = months.slice(initialMonth, initialMonth + 2)
-      const lastMonth = Array.of(months[11])
-      const concatMonths = lastMonth.concat(firstMonths)
-      setShowedMonths(concatMonths)
+      const newMonths = monthZero(initialMonth)
+      setShowedMonths(newMonths)
     } else if (initialMonth === 11) {
-      const firstMonths = months.slice(initialMonth - 1, initialMonth + 1)
-      const lastMonth = Array.of(months[0])
-      const concatMonths = firstMonths.concat(lastMonth)
-      setShowedMonths(concatMonths)
+      const newMonths = monthEleven(initialMonth)
+      setShowedMonths(newMonths)
     } else {
       setShowedMonths(months.slice(initialMonth - 1, initialMonth + 2))
     }
@@ -76,19 +85,14 @@ function App() {
   const moveMonthRight = () => {
     const ultMonth = months.findIndex(each => each === showedMonths[2])
     if (ultMonth === 11) {
-      const firstMonths = months.slice(ultMonth - 1, ultMonth + 1)
-      const lastMonth = Array.of(months[0])
-      const concatMonths = firstMonths.concat(lastMonth)
-      setShowedMonths(concatMonths)
+      const newMonths = monthEleven(ultMonth)
+      setShowedMonths(newMonths)
     } else if (ultMonth === 0) {
-      const firstMonths = months.slice(ultMonth, ultMonth + 2)
-      const lastMonth = Array.of(months[11])
-      const concatMonths = lastMonth.concat(firstMonths)
-      setShowedMonths(concatMonths)
+      const newMonths = monthZero(ultMonth)
+      setShowedMonths(newMonths)
     } else {
       setShowedMonths(months.slice(ultMonth - 1, ultMonth + 2))
     }
-
   }
 
   return (
