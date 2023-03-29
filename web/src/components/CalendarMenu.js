@@ -9,11 +9,14 @@ const CalendarMenu = ({ showedMonths, changeMonth, moveMonthLeft, moveMonthRight
         } else {
             moveMonthRight()
         }
-
     }
 
     const renderMonths = () => {
-        return showedMonths.map((each, index) => <li key={index} id={each} onClick={handleMonthClick} className="monthMenu__change__list__element">{each}</li>)
+        return showedMonths.map((each, index) => {
+            if (index <= 2) {
+                return <li key={index} id={each} onClick={handleMonthClick} className="monthMenu__change__list__element">{each}</li>
+            } else return false
+        })
     }
     return (
         <section className="monthMenu">
