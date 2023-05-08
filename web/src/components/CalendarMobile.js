@@ -1,4 +1,4 @@
-const CalendarMobile = ({ currentMonthName, days }) => {
+const CalendarMobile = ({ currentMonthName, days, vegetables }) => {
 
     const daysToRender = []
     const renderDays = () => {
@@ -10,14 +10,26 @@ const CalendarMobile = ({ currentMonthName, days }) => {
             return <li key={index} className='calendar__body__day'>{each}</li>
         })
     }
+    const renderVeggies = () => {
+        return vegetables.map(eachVeggie => {
+            if (eachVeggie.earth === currentMonthName) {
+                return <section className="calendar__body__task--soil">{eachVeggie.name}</section>
+            } else return false
+        })
+        // each.earth === currentMonthName     return <section className="calendar__body__task--soil">{each}</section>
+
+
+
+    }
     return (
         <section className='calendar'>
             <h2 className='calendar__title'>{currentMonthName}</h2>
             <div className='calendar__body'>
                 <ul className='calendar__body__ul'>{renderDays()}</ul>
                 <div className='calendar__body__task'>
-                    <section className='calendar__body__task--soil'> Berejenas</section>
-                    <section className='calendar__body__task--harvest'> Guisantes</section>
+                    {renderVeggies()}
+                    {/* <section className='calendar__body__task--soil'> Berejenas</section>
+                    <section className='calendar__body__task--harvest'> Guisantes</section> */}
                 </div>
             </div>
 

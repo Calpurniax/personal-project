@@ -40,6 +40,7 @@ function App() {
   {
     name: 'calabaza',
     icon: tomate,
+    earth: 'marzo',
   }]
 
   // const getMonthName = (monthNumber) => {
@@ -71,7 +72,7 @@ function App() {
     <div className='app'>
       <Header />
       <main className='main'>
-        <CalendarMobile days={days} currentMonthName={currentMonthName} />
+        <CalendarMobile days={days} currentMonthName={currentMonthName} vegetables={vegetables} />
         <CalendarMenu showedMonths={showedMonths} changeMonth={changeMonth} moveMonthLeft={moveMonthLeft} moveMonthRight={moveMonthRight} />
         <CalendarLegend />
         <List vegetables={vegetables} />
