@@ -24,7 +24,9 @@ function App() {
 
   const [currentMonthName, setCurrentMonthName] = useState(months[new Date().getMonth()])
   const monthsBefore = months.filter((eachMonth, index) => index < currentMonthNumber - 1)
-  const [showedMonths, setShowedMonths] = useState(months.slice((new Date().getMonth() - 1)).concat(monthsBefore))
+  const monthsAfter = months.filter((eachMonth, index) => index >= currentMonthNumber - 1)
+  //const [showedMonths, setShowedMonths] = useState(months.slice((new Date().getMonth() - 1)).concat(monthsBefore))
+  const [showedMonths, setShowedMonths] = useState(monthsAfter.concat(monthsBefore))
   const vegetables = [{
     name: 'apio',
     icon: carrot,
@@ -44,8 +46,8 @@ function App() {
 
   useEffect(() => {
     if (currentMonthNumber === 0) {
-      const lastMonth = months.pop()
-      setShowedMonths([lastMonth, ...months])
+      const december = months.pop()
+      setShowedMonths([december, ...months])
     }
   }, [])
 
@@ -54,13 +56,13 @@ function App() {
     setDays(daysInMonth);
   }, [currentMonthNumber]);
 
-
   const changeMonth = (month) => {
     setCurrentMonthNumber(months.findIndex(each => each === month))
     setCurrentMonthName(month)
   }
   const moveMonthLeft = () => {
-    setShowedMonths([showedMonths[11], ...showedMonths])
+    const lastMonth = showedMonths.pop()
+    setShowedMonths([lastMonth, ...showedMonths])
   }
   const moveMonthRight = () => {
     const firstMonth = showedMonths.shift()
