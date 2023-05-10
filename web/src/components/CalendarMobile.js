@@ -16,11 +16,8 @@ const CalendarMobile = ({ currentMonthName, days, vegetables }) => {
                 return <section className="calendar__body__task--soil">{eachVeggie.name}</section>
             } else return false
         })
-        // each.earth === currentMonthName     return <section className="calendar__body__task--soil">{each}</section>
-
-
-
     }
+
     return (
         <section className='calendar'>
             <h2 className='calendar__title'>{currentMonthName}</h2>
