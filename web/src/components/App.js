@@ -21,12 +21,11 @@ function App() {
     return new Date(year, month, 0).getDate();
   }
   const [days, setDays] = useState(getDays(new Date().getFullYear(), (new Date().getMonth() + 1)));
-
   const [currentMonthName, setCurrentMonthName] = useState(months[new Date().getMonth()])
   const monthsBefore = months.filter((eachMonth, index) => index < currentMonthNumber - 1)
   const monthsAfter = months.filter((eachMonth, index) => index >= currentMonthNumber - 1)
-  //const [showedMonths, setShowedMonths] = useState(months.slice((new Date().getMonth() - 1)).concat(monthsBefore))
   const [showedMonths, setShowedMonths] = useState(monthsAfter.concat(monthsBefore))
+
   const vegetables = [{
     name: 'apio',
     icon: carrot,
