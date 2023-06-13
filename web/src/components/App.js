@@ -51,8 +51,7 @@ function App() {
   useEffect(() => {
     apiVegetables.getVeggiesFromApi().then((response) => {
       setVegetablesApi(response.plants)
-      console.log(vegetablesApi)
-    });
+    })
   }, []);
 
 

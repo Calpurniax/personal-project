@@ -1,7 +1,7 @@
 
 const getVeggiesFromApi = (params) => {
     console.log('Se están pidiendo las plantas de la app');
-    console.log(params);
+    //console.log(params);
     return fetch(
         `//localhost:4000/plants`,
         {
