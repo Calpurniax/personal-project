@@ -41,6 +41,10 @@ function App() {
     name: 'calabaza',
     icon: tomate,
     earth: 'marzo',
+  },
+  {
+    name: 'zanahoria',
+    icon: carrot
   }]
 
   // const getMonthName = (monthNumber) => {
