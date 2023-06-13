@@ -16,3 +16,14 @@ server.listen(serverPort, () => {
     console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
+server.get('/plants', (req, res) => {
+    const query = db.prepare(
+        `SELECT * FROM plants ORDER BY name`
+    );
+    const plants = query.all();
+    const response = {
+        sucess: true,
+        plants: plants
+    };
+    res.json(response);
+})

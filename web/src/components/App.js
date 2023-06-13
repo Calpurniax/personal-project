@@ -6,6 +6,7 @@ import CalendarLegend from './CalendarLegend';
 import CalendarMenu from './CalendarMenu';
 import List from './List';
 import Footer from './Footer';
+import apiVegetables from '../services/api-vegetables'
 import onion from '../images/onion.png';
 import lettuce from '../images/lettuce.png';
 import tomate from '../images/tomate.png';
@@ -25,6 +26,7 @@ function App() {
   const [currentMonthName, setCurrentMonthName] = useState(months[new Date().getMonth()])
   const monthsBefore = months.filter((eachMonth, index) => index < currentMonthNumber - 1)
   const [showedMonths, setShowedMonths] = useState(months.slice((new Date().getMonth() - 1)).concat(monthsBefore))
+  const [vegetablesApi, setVegetablesApi] = useState([])
   const vegetables = [{
     name: 'apio',
     icon: carrot,
@@ -46,14 +48,14 @@ function App() {
     name: 'zanahoria',
     icon: carrot
   }]
+  useEffect(() => {
+    apiVegetables.getVeggiesFromApi().then((response) => {
+      setVegetablesApi(response.plants)
+      console.log(vegetablesApi)
+    });
+  }, []);
 
-  // const getMonthName = (monthNumber) => {
-  //   console.log(monthNumber)
-  //   return months[monthNumber]
-  // }
-  // const getShowedMonths = () => {
-  //   return months.slice(currentMonthNumber - 1, (currentMonthNumber + 2))
-  // }
+
 
   useEffect(() => {
     const daysInMonth = getDays(new Date().getFullYear(), currentMonthNumber + 1)
