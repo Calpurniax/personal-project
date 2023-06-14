@@ -45,8 +45,8 @@ function App() {
     earth: 'marzo',
   },
   {
-    name: 'zanahoria',
-    icon: carrot
+    name: 'pimiento',
+    icon: tomate,
   }]
   useEffect(() => {
     apiVegetables.getVeggiesFromApi().then((response) => {
